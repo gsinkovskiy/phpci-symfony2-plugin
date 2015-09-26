@@ -1,0 +1,9 @@
+en:
+    passed: "Symfony2 commands passed successful"
+    failed: "Symfony2 commands failed"
+ru:
+    passed: "Symfony2 команды выполнились успешно"
+    failed: "Symfony2 команды не выполнились"
+ua:
+    passed: "Symfony2 команди спрацювали успішно"
+    failed: "Symfony2 команди не спрацювали"

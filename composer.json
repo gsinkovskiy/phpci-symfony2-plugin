@@ -1,0 +1,21 @@
+{
+    "name": "mindteam/phpci-symfony2-plugin",
+    "description": "PHPCI plugin for using Symfony2 commands",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexander Gansky",
+            "email": "a.gansky@mindteam.com.ua"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "symfony/yaml": "~2.1"
+    },
+    "target-dir": "Mindteam/PHPCI/Plugin",
+    "autoload": {
+        "psr-0": {
+            "Mindteam\\PHPCI\\Plugin": ""
+        }
+    }
+}
