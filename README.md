@@ -2,7 +2,7 @@
 PHPCI plugin for using symfony2 commands.
 
 Configuration:
-
+```yml
 setup:
     composer:
         action: "install"
@@ -13,3 +13,4 @@ setup:
             -  doctrine:database:create
             -  doctrine:schema:update --force
             -  doctrine:fixtures:load
+```
