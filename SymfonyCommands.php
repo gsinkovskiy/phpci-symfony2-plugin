@@ -1,4 +1,5 @@
 <?php
+
 /**
  * PHPCI - Continuous Integration for PHP. Plugin for using Symfony2 commands.
  *
@@ -8,45 +9,71 @@
  * @link       http://mindteam.com.ua
  */
 
-namespace Intaro\PHPCI\Plugin;
+namespace Mindteam\PHPCI\Plugin;
 
+use PHPCI;
 use PHPCI\Builder;
 use PHPCI\Model\Build;
 use Symfony\Component\Yaml\Parser as YamlParser;
+use PHPCI\Plugin as BaseInterface;
 
 /**
- * Update related Symfony2 issue with build status
+ * Plugin for Symfony2 commands
  */
-class SymfonyCommands implements PHPCI\Plugin, PHPCI\ZeroConfigPlugin
+class SymfonyCommands implements BaseInterface
 {
 
     protected $directory;
     protected $phpci;
     protected $build;
+    protected $commandList = array();
 
     /**
      * Set up the plugin, configure options, etc.
-     * 
+     *
      * @param Builder $phpci
      * @param Build $build
      * @param array $options
      */
     public function __construct(Builder $phpci, Build $build, array $options = array())
     {
-        $path = $phpci->buildPath;
         $this->phpci = $phpci;
         $this->build = $build;
-        $this->directory = $path;
+        $this->directory = $phpci->buildPath;
+        if (isset($options['commands'])) {
+            $this->commandList = $options['commands'];
+        }
     }
 
     /**
      * Executes Symfony2 commands
+     *
+     * @return boolean plugin work status
      */
     public function execute()
     {
-        $cmd = 'php app/console --help';
+        $success = true;
+        foreach ($this->commandList as $command) {
+            if (!$this->runSingleCommand($command)) {
+                $success = false;
+                break;
+            }
+        }
+        return $success;
+    }
 
-        return $this->phpci->executeCommand($cmd, $this->directory, $this->action);
+    /**
+     * Run one command
+     *
+     * @param string $command command for cymfony
+     *
+     * @return boolean
+     */
+    public function runSingleCommand($command)
+    {
+        $cmd = 'php ' . $this->directory . 'app/console ';
+
+        return $this->phpci->executeCommand($cmd . $command, $this->directory);
     }
 
 }
