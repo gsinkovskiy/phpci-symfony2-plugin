@@ -2,6 +2,7 @@
     "name": "mindteam/phpci-symfony2-plugin",
     "description": "PHPCI plugin for using Symfony2 commands",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "Alexander Gansky",
@@ -16,6 +17,17 @@
     "autoload": {
         "psr-0": {
             "Mindteam\\PHPCI\\Plugin": ""
+        }
+    },
+    "extra": {
+        "phpci": {
+            "pluginNamespace": "Mindteam\\Phpci\\Plugins\\",
+            "suppliedPlugins": [
+                {
+                    "name": "symfony_commands",
+                    "class": "SymfonyCommands:"
+                }
+            ]
         }
     }
 }
