@@ -1,22 +1,33 @@
 {
-    "name": "itworks/phpci-symfony2-plugin",
+    "name": "mindteam/phpci-symfony2-plugin",
     "description": "PHPCI plugin for using Symfony2 commands",
     "license": "MIT",
     "type": "library",
     "authors": [
         {
-            "name": "Gleb Sinkovskiy",
-            "email": "gleb@itworks-soft.com"
+            "name": "Alexander Gansky",
+            "email": "a.gansky@mindteam.com.ua"
         }
     ],
     "require": {
         "php": ">=5.3.3",
         "symfony/yaml": "~2.1"
     },
-    "target-dir": "ITWorks/PHPCI/Plugin",
+    "target-dir": "Mindteam/PHPCI/Plugin",
     "autoload": {
         "psr-0": {
-            "ITWorks\\PHPCI\\Plugin": ""
+            "Mindteam\\PHPCI\\Plugin": ""
+        }
+    },
+    "extra": {
+        "phpci": {
+            "pluginNamespace": "Mindteam\\Phpci\\Plugins\\",
+            "suppliedPlugins": [
+                {
+                    "name": "symfony_commands",
+                    "class": "SymfonyCommands:"
+                }
+            ]
         }
     }
 }

@@ -4,12 +4,12 @@
  * PHPCI - Continuous Integration for PHP. Plugin for using Symfony2 commands.
  *
  * @package    PHPCI\Plugin
- * @author     Gleb Sinkovskiy <gleb@itworks-soft.com>
- * @license    https://github.com/gsinkovskiy/phpci-symfony2-plugin/blob/master/LICENSE
- * @link       http://itworks-soft.com
+ * @author     Alexander Gansky <a.gansky@mindteam.com.ua>
+ * @license    https://github.com/mindteam/phpci-symfony2-plugin/blob/master/LICENSE
+ * @link       http://mindteam.com.ua
  */
 
-namespace ITWorks\PHPCI\Plugin;
+namespace Mindteam\PHPCI\Plugin;
 
 use PHPCI;
 use PHPCI\Builder;
