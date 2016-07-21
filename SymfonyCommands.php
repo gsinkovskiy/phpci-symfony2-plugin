@@ -71,7 +71,7 @@ class SymfonyCommands implements BaseInterface
      */
     public function runSingleCommand($command)
     {
-        $cmd = 'php ' . $this->directory . 'app/console ';
+        $cmd = 'php ' . $this->directory . 'bin/console ';
 
         return $this->phpci->executeCommand($cmd . $command, $this->directory);
     }
